@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-add_integer = __import__('0-add_integer').add_integer
+add_integer = __import__('add_integer-0').add_integer
 
 print(add_integer(1, 2))
 print(add_integer(100, -2))
@@ -14,10 +14,3 @@ try:
 except Exception as e:
     print(e)
 
-guillaume@ubuntu:~/$ ./0-main.py
-3
-98
-100
-98
-b must be an integer
-a must be an integer
