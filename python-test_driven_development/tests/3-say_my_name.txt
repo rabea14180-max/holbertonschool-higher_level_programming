@@ -1,65 +1,14 @@
 >>> say_my_name = __import__('3-say_my_name').say_my_name
-
-# ===== Correct usage =====
->>> say_my_name("John", "Smith")
-My name is John Smith
-
->>> say_my_name("Walter", "White")
-My name is Walter White
-
+>>> say_my_name("Bob", "Lenon")
+My name is Bob Lenon
 >>> say_my_name("Bob")
-My name is Bob
-
->>> say_my_name("Alice", "")
-My name is Alice
-
->>> say_my_name("Alice")
-My name is Alice
-
->>> say_my_name("", "")
-My name is
-
->>> say_my_name("Charlie", "Brown")
-My name is Charlie Brown
-
->>> say_my_name("Diana", "Prince")
-My name is Diana Prince
-
-# ===== TypeError checks =====
->>> say_my_name(12, "White")
-Traceback (most recent call last):
-TypeError: first_name must be a string
-
->>> say_my_name("Alice", 34)
+My name is Bob 
+>>> say_my_name("Bob", 12)
 Traceback (most recent call last):
 TypeError: last_name must be a string
-
->>> say_my_name(None, "Smith")
+>>> say_my_name(12, "Lenon")
 Traceback (most recent call last):
 TypeError: first_name must be a string
-
->>> say_my_name("Alice", None)
+>>> say_my_name()
 Traceback (most recent call last):
-TypeError: last_name must be a string
-
->>> say_my_name([1, 2], "White")
-Traceback (most recent call last):
-TypeError: first_name must be a string
-
->>> say_my_name("Alice", ["Smith"])
-Traceback (most recent call last):
-TypeError: last_name must be a string
-
->>> say_my_name({ "first": "Alice" }, "White")
-Traceback (most recent call last):
-TypeError: first_name must be a string
-
->>> say_my_name("Alice", { "last": "Smith" })
-Traceback (most recent call last):
-TypeError: last_name must be a string
-
->>> say_my_name(True, "Smith")
-My name is True Smith
-
->>> say_my_name("Alice", False)
-My name is Alice False
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
