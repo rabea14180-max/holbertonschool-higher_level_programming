@@ -24,16 +24,15 @@ def text_indentation(text):
         ch = text[i]
 
         if ch in separators:
-            
             line = line.rstrip()
             line += ch
             print(line, end="\n\n")
             line = ""
+
             i += 1
             while i < length and text[i] == " ":
                 i += 1
             continue
-
 
         if not line and ch == " ":
             i += 1
@@ -41,7 +40,6 @@ def text_indentation(text):
 
         line += ch
         i += 1
-
 
     line = line.strip()
     if line:
