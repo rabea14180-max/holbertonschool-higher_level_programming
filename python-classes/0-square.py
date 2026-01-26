@@ -1,6 +1,11 @@
 #!/usr/bin/python3
-"""Defines a Square class."""
+"""
+Docstring for python-classes.0-square
+"""
+
 
 class Square:
-    """ Defines a Square class"""
+    """
+        Docstring for Square
+        """
     pass
