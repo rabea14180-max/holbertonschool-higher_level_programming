@@ -7,7 +7,6 @@ class Square:
 # This class defines a Square
     # For now, the class is empty and does not contain
     # any attributes or methods
-
-""" 
+"""
 pass
 
