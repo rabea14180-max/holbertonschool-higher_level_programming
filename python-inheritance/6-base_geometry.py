@@ -10,4 +10,3 @@ class BaseGeometry:
     def area(self):
         """Method that should be implemented by subclasses"""
         raise Exception("area() is not implemented")
-
