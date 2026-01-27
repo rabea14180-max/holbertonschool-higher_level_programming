@@ -3,6 +3,7 @@
 This module defines a BaseGeometry class.
 """
 
+
 class BaseGeometry:
     """BaseGeometry class"""
 
