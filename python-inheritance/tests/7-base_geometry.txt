@@ -1,79 +1,83 @@
-The ``BaseGeometry`` class
-=========================
+====================================
+Tests for BaseGeometry integer_validator
+====================================
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-Instance creation
------------------
-
 >>> bg = BaseGeometry()
->>> type(bg).__name__
-'BaseGeometry'
 
-area method
------------
+1. Test area()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
 
+2. Test integer_validator() with valid input
+>>> bg.integer_validator("age", 1)
+
+3. Test integer_validator("age", 0) -> ValueError
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+4. Test integer_validator("age", -4) -> ValueError
+>>> bg.integer_validator("age", -4)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+5. Test integer_validator("age", "4") -> TypeError
+>>> bg.integer_validator("age", "4")
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+6. Test integer_validator("age", (4,)) -> TypeError
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+7. Test integer_validator("age", [3]) -> TypeError
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+8. Test integer_validator("age", True) -> TypeError
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+9. Test integer_validator("age", {3, 4}) -> TypeError
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+10. Test integer_validator("age", None) -> TypeError
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Check with no arguments:
 >>> try:
-...     bg.area()
-... except Exception as e:
-...     print(e)
-area() is not implemented
+...     bg.integer_validator()
+... except TypeError as e:
+...     print(str(e).replace("BaseGeometry.", ""))
+integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Valid integer values
---------------------
-
->>> bg.integer_validator("my_int", 1)
->>> bg.integer_validator("width", 89)
->>> bg.integer_validator("height", 1000)
-
-Zero value
-----------
-
+Check with only one argument ("age"):
 >>> try:
-...     bg.integer_validator("age", 0)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
+...     bg.integer_validator("age")
+... except TypeError as e:
+...     print(str(e).replace("BaseGeometry.", ""))
+integer_validator() missing 1 required positional argument: 'value'
 
-Negative integer
-----------------
-
->>> try:
-...     bg.integer_validator("distance", -4)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] distance must be greater than 0
-
-Non-integer types
------------------
-
->>> try:
-...     bg.integer_validator("name", "John")
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] name must be an integer
-
->>> try:
-...     bg.integer_validator("price", 3.5)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] price must be an integer
-
->>> try:
-...     bg.integer_validator("active", True)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] active must be an integer
-
->>> try:
-...     bg.integer_validator("data", None)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] data must be an integer
-
-Multiple valid calls
---------------------
-
->>> bg.integer_validator("x", 10)
->>> bg.integer_validator("y", 20)
->>> bg.integer_validator("z", 30)
+Check with float argument:
+>>> bg.integer_validator("age", 13.5)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
