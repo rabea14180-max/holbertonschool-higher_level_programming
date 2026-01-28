@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-Defines Shape abstract class and concrete classes Circle and Rectangle,
-with a duck-typed function to print shape information.
+Demonstrates duck typing with shapes using ABC.
 """
 
 from abc import ABC, abstractmethod
@@ -9,7 +8,7 @@ import math
 
 
 class Shape(ABC):
-    """Abstract base class representing a geometric shape"""
+    """Abstract base class for shapes"""
 
     @abstractmethod
     def area(self):
@@ -29,7 +28,7 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        return math.pi * (self.radius ** 2)
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
         return 2 * math.pi * self.radius
@@ -50,9 +49,6 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    """
-    Prints the area and perimeter of a shape object.
-    Uses duck typing: assumes the object has area() and perimeter() methods.
-    """
-    print("Area:", shape.area())
-    print("Perimeter:", shape.perimeter())
+    """Print the area and perimeter of any shape using duck typing"""
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
