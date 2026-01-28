@@ -2,7 +2,9 @@
 from abc import ABC, abstractmethod
 import math
 
-# abstract base class
+# -----------------------------
+# Abstract base class Shape
+# -----------------------------
 class Shape(ABC):
     @abstractmethod
     def area(self):
@@ -14,7 +16,9 @@ class Shape(ABC):
         """Return the perimeter of the shape"""
         pass
 
+# -----------------------------
 # Circle class
+# -----------------------------
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
@@ -25,7 +29,9 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self.radius
 
+# -----------------------------
 # Rectangle class
+# -----------------------------
 class Rectangle(Shape):
     def __init__(self, width, height):
         self.width = width
@@ -37,7 +43,14 @@ class Rectangle(Shape):
     def perimeter(self):
         return 2 * (self.width + self.height)
 
-# duck typing function
+# -----------------------------
+# Duck typing function
+# -----------------------------
 def shape_info(shape):
+    """
+    Accept any object that has area() and perimeter() methods
+    and print its area and perimeter.
+    """
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
+    
