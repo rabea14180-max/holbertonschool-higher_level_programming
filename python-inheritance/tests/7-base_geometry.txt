@@ -10,6 +10,15 @@ Instance creation
 >>> type(bg).__name__
 'BaseGeometry'
 
+area method
+-----------
+
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
+
 Valid integer values
 --------------------
 
@@ -62,8 +71,8 @@ Non-integer types
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] data must be an integer
 
-Multiple calls consistency
---------------------------
+Multiple valid calls
+--------------------
 
 >>> bg.integer_validator("x", 10)
 >>> bg.integer_validator("y", 20)
