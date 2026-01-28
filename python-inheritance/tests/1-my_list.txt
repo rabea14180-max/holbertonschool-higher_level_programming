@@ -1,4 +1,48 @@
+The ``MyList`` class
+===================
+
 >>> MyList = __import__('1-my_list').MyList
+
+Empty list
+----------
+
+>>> my_list = MyList()
+>>> print(my_list)
+[]
+>>> my_list.print_sorted()
+[]
+>>> print(my_list)
+[]
+
+One element
+-----------
+
+>>> my_list = MyList()
+>>> my_list.append(5)
+>>> print(my_list)
+[5]
+>>> my_list.print_sorted()
+[5]
+>>> print(my_list)
+[5]
+
+Already sorted list
+-------------------
+
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> print(my_list)
+[1, 2, 3]
+>>> my_list.print_sorted()
+[1, 2, 3]
+>>> print(my_list)
+[1, 2, 3]
+
+Unsorted list
+-------------
+
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
@@ -12,11 +56,33 @@
 >>> print(my_list)
 [1, 4, 2, 3, 5]
 
+List with duplicate numbers
+---------------------------
+
+>>> my_list = MyList()
+>>> my_list.append(3)
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(1)
+>>> print(my_list)
+[3, 1, 2, 3, 1]
+>>> my_list.print_sorted()
+[1, 1, 2, 3, 3]
+>>> print(my_list)
+[3, 1, 2, 3, 1]
+
+List with negative numbers
+--------------------------
+
+>>> my_list = MyList()
 >>> my_list.append(-1)
+>>> my_list.append(-10)
+>>> my_list.append(5)
 >>> my_list.append(0)
 >>> print(my_list)
-[1, 4, 2, 3, 5, -1, 0]
+[-1, -10, 5, 0]
 >>> my_list.print_sorted()
-[-1, 0, 1, 2, 3, 4, 5]
+[-10, -1, 0, 5]
 >>> print(my_list)
-[1, 4, 2, 3, 5, -1, 0]
+[-1, -10, 5, 0]
