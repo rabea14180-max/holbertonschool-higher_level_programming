@@ -1,15 +1,9 @@
-#!/usr/bin/env python3
-"""
-Demonstrates duck typing with shapes using ABC.
-"""
-
+# task_01_duck_typing.py
 from abc import ABC, abstractmethod
 import math
 
-
+# abstract base class
 class Shape(ABC):
-    """Abstract base class for shapes"""
-
     @abstractmethod
     def area(self):
         """Return the area of the shape"""
@@ -20,10 +14,8 @@ class Shape(ABC):
         """Return the perimeter of the shape"""
         pass
 
-
+# Circle class
 class Circle(Shape):
-    """Circle class inheriting from Shape"""
-
     def __init__(self, radius):
         self.radius = radius
 
@@ -33,10 +25,8 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self.radius
 
-
+# Rectangle class
 class Rectangle(Shape):
-    """Rectangle class inheriting from Shape"""
-
     def __init__(self, width, height):
         self.width = width
         self.height = height
@@ -47,8 +37,7 @@ class Rectangle(Shape):
     def perimeter(self):
         return 2 * (self.width + self.height)
 
-
+# duck typing function
 def shape_info(shape):
-    """Print the area and perimeter of any shape using duck typing"""
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
