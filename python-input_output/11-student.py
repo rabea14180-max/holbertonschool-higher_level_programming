@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a Student class with JSON serialization/deserialization."""
+"""Module that defines a Student class with JSON serialization and deserialization."""
 
 
 class Student:
@@ -29,7 +29,8 @@ class Student:
         """
         Replaces all attributes of the Student instance.
 
-        json: dictionary where keys are attribute names and values are their new values.
+        json: dictionary where keys are attribute names and values are their new
+        values.
         """
         for key, value in json.items():
             setattr(self, key, value)
