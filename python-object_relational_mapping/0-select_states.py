@@ -1,9 +1,6 @@
 #!/usr/bin/python3
-"""List all states from the database"""
-
 import MySQLdb
 import sys
-
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
@@ -15,7 +12,7 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
     rows = cur.fetchall()
 
     for row in rows:
@@ -23,4 +20,4 @@ if __name__ == "__main__":
 
     cur.close()
     db.close()
-      
+    
