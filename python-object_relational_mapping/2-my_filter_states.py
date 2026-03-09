@@ -1,45 +1,28 @@
 #!/usr/bin/python3
-"""
-This module filters states by name from a MySQL database.
+"""takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa
+where name matches the argument"""
 
-It connects to a MySQL server running on localhost at port 3306,
-queries the states table, and displays rows where the name matches
-the provided argument. Results are sorted by states.id in ascending order.
-"""
+if __name__ == "__main__":
 
-import MySQLdb
-import sys
+    import MySQLdb
+    import sys
 
-
-def main():
-    """
-    Connects to the MySQL database and retrieves states
-    that match the provided name argument.
-    """
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3]
+        db=sys.argv[3],
     )
 
-    cursor = db.cursor()
-
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(
-        sys.argv[4]
+    cur = db.cursor()
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY '{}'\
+                ORDER BY states.id ASC".format(
+            sys.argv[4]
+        )
     )
-    cursor.execute(query)
-
-    results = cursor.fetchall()
-
-    for row in results:
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
-
-    cursor.close()
-    db.close()
-
-
-if __name__ == "__main__":
-    main()
-    
